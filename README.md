@@ -1,5 +1,11 @@
 ## Microservice Lifecycle Journey
 
+* [Goal of the project](#goal)
+* [Design](#design)
+* [Develop](#develop)
+* [Test](#test)
+
+## Goal of the project <a name="goal"></a>
 The goal of this experimental project is to standardize as much as possible the lifecycle of a microservice
 to unify the CI/CD pipeline of all microservices: design, document, develop, deploy, test, secure, monitor.
 
@@ -22,13 +28,11 @@ Requirements:
 - NodeJS used by oatts
 - Mocha, JavaScript test framework used by oatts: `npm install --global mocha chakram`
 
-### Design
+### Design <a name="design"></a>
 
 Using OpenAPI v3.0.0 specification: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md
 
 [hello.yaml](hello.yaml)
-
-### Validate
 
 Validate that `hello.yaml` is compliant to the OpenAPI specification.
 
@@ -36,7 +40,7 @@ Validate that `hello.yaml` is compliant to the OpenAPI specification.
 java -jar ~/Downloads/openapi-generator-cli.jar validate --input-spec ./hello.yaml
 ```
 
-### Develop
+### Develop <a name="develop"></a>
 #### Build
 
 Automatically build a Go server implementating the foundation of the Hello World microservice from `hello.yaml`
@@ -62,7 +66,7 @@ should return:
 Hello World!% 
 ```
 
-### Test
+### Test <a name="test"></a>
 
 #### Generate the test suite
 
