@@ -1,0 +1,47 @@
+openapi: "3.0.0"
+info:
+  version: 2.0.0
+  title: OpenAPI HelloWorld
+  license:
+    name: MIT
+servers:
+  - url: http://v1.hello.domain.localdomain
+paths:
+  /:
+    get:
+      summary: Return "Hello World!"
+      operationId: getHello
+      tags:
+        - hello
+      responses:
+        '200':
+          description: Hello World
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Hello"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Hello:
+      required:
+        - Hello
+      properties:
+        Hello:
+          type: string
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
